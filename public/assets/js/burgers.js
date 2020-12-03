@@ -2,18 +2,13 @@ $(function () {
 
     $(".devourBurger").on("click", function (event) {
         var id = $(this).data("id");
-        var newDevoured = true;
-
-        var newDevouredState = {
-            devoured: true
-        };
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newDevouredState
+            data: true
         }).then(
             function () {
-                console.log("Changed devoured to: ", newDevoured);
+                console.log("Burger devoured");
                 location.reload();
             }
         );

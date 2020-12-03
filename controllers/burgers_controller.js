@@ -31,10 +31,11 @@ router.post("/api/burgers", function (req, res) {
 });
 
 // Put
-router.put("api/burgers/:id", function (req, res) {
-    var condition = "id = " + req.params.id;
+router.put("/api/burgers/:id", function (req, res) {
+    var condition = req.params.id;
+    console.log("!!!!!!!!!!!condition: ", condition);
 
-    burger.delete(condition, function (result) {
+    burger.updateOne(condition, function (result) {
         if (result.affectedRows == 0) {
             return res.status(404).end();
         } else {
