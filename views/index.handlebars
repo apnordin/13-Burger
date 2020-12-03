@@ -1,1 +1,9 @@
 <h1>Burger Time</h1>
+
+<ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{!-- {{> burgers/burger-block devoured=false}} --}}
+    {{/unless}}
+    {{/each}}
+</ul>
